@@ -38,7 +38,7 @@ function PasswordGeneratorApp() {
         <span className="font-bold text-emerald-600">cuentas seguras</span>
       </h2>
       <div className="flex justify-center mt-10">
-        <div className="box rounded-full w-full mx-4 md:w-2/4 md:mx-auto mt-6 mb-6 inline-flex justify-between h-14 items-center">
+        <div className="box rounded-full max-w-full w-full mx-4 md:w-2/4 md:mx-auto mt-6 mb-6 inline-flex justify-between h-14 items-center">
           <button className="flex hover:bg-emerald-600 hover:bg-opacity-40 rounded-2xl p-2 ml-2 h-10 w-10 items-center font-semibold active:scale-90 duration-75">
             <BiCopyAlt size={32} onClick={() => copyToClipboard(password)} />
           </button>
