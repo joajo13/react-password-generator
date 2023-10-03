@@ -2,7 +2,7 @@ import React from "react";
 
 export const Checkbox = React.memo(({ especs, onChange, name }) => {
   return (
-    <div className="flex flex-col items-center text-center justify-center">
+    <div className="flex flex-col items-center text-center justify-center dark:text-white">
       <label className="control control-checkbox m-0 p-0" htmlFor={name}>
         {name}
         <input

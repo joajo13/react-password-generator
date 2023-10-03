@@ -3,6 +3,7 @@ import { Options } from "./components/Options";
 import { PasswordCard } from "./components/PasswordCard";
 import { Titles } from "./components/Titles";
 import { usePasswordGenerator } from "./hooks/usePasswordGenerator";
+import { Navbar } from "./components/Navbar";
 
 function PasswordGeneratorApp() {
   const {
@@ -44,16 +45,19 @@ function PasswordGeneratorApp() {
 
   return (
     <>
-      <Toaster richColors />
-      <Titles />
+      <div className="bg-white min-h-screen -z-10 dark:bg-gray-900">
+        <Navbar />
+        <Toaster richColors />
+        <Titles />
 
-      <PasswordCard
-        copyToClipboard={copyToClipboard}
-        handleClick={handleClick}
-        password={password}
-      />
+        <PasswordCard
+          copyToClipboard={copyToClipboard}
+          handleClick={handleClick}
+          password={password}
+        />
 
-      <Options params={params} />
+        <Options params={params} />
+      </div>
     </>
   );
 }

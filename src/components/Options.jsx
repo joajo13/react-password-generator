@@ -19,7 +19,7 @@ export const Options = React.memo(({ params }) => {
     <div className="flex flex-col items-center mt-4">
       <div className="flex flex-col md:grid md:grid-cols-2 p-4 font-bold text-gray-600 mt-4 text-center items-center ">
         <div className="w-72 md:text-start">
-          <label htmlFor="length" className="font-Roboto p-2">
+          <label htmlFor="length" className="font-Roboto p-2 dark:text-white">
             Longitud de la contraseña:
           </label>
           <span className="mr-6 text-emerald-600">{length}</span>
@@ -34,7 +34,7 @@ export const Options = React.memo(({ params }) => {
             max={32}
             value={length}
             onChange={handleLengthChange}
-            className="in-range:border-green-500"
+            className="rounded-full"
           />
         </div>
       </div>

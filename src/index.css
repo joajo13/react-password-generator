@@ -11,6 +11,7 @@
 .box {
   position: relative;
   background: white;
+  z-index: 1;
 }
 
 .box:before {
@@ -39,6 +40,11 @@
   left: 0;
   background: inherit;
   border-radius: inherit;
+}
+
+input:checked ~ .dot {
+  transform: translateX(100%);
+  background-color: white;
 }
 
 /*------------------------------------------input-------------------------------------------------*/
