@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import { generatePassword } from "../helpers/generatePassword";
 
 export const usePasswordGenerator = () => {
@@ -10,12 +10,13 @@ export const usePasswordGenerator = () => {
     const [useNumbers, setUseNumbers] = useState(true);
     const [useSymbols, setUseSymbols] = useState(true);
 
-    const handleClick = () => {
+    const handleClick = useCallback(() => {
         setPassword(generatePassword(length, useLettersMin, useLettersMayus, useNumbers, useSymbols));
-    };
+    }, [length, useLettersMin, useLettersMayus, useNumbers, useSymbols]);
 
     const handleLengthChange = (e) => {
         setLength(e.target.value);
+        handleClick()
     };
 
     const handleLettersMinChange = (e) => {
