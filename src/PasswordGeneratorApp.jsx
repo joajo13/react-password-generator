@@ -4,6 +4,8 @@ import { PasswordCard } from "./components/PasswordCard";
 import { Titles } from "./components/Titles";
 import { usePasswordGenerator } from "./hooks/usePasswordGenerator";
 import { Navbar } from "./components/Navbar";
+import { useTheme } from "./hooks/useTheme";
+import { Footer } from "./components/Footer";
 
 function PasswordGeneratorApp() {
   const {
@@ -19,6 +21,7 @@ function PasswordGeneratorApp() {
     handleNumbersChange,
     handleSymbolsChange,
     handleLengthChange,
+    copyToClipboard,
   } = usePasswordGenerator();
 
   const params = {
@@ -34,20 +37,13 @@ function PasswordGeneratorApp() {
     handleLengthChange,
   };
 
-  const copyToClipboard = async (str) => {
-    try {
-      await navigator.clipboard.writeText(str);
-      toast.success("Copiado al portapapeles");
-    } catch (error) {
-      toast.error("Error al copiar al portapapeles");
-    }
-  };
+  const { handleToggleTheme, theme } = useTheme();
 
   return (
     <>
       <div className="bg-white min-h-screen -z-10 dark:bg-gray-900">
-        <Navbar />
-        <Toaster richColors />
+        <Navbar handleToggleTheme={handleToggleTheme} />
+        <Toaster richColors theme={theme ? "dark" : "light"} />
         <Titles />
 
         <PasswordCard
@@ -57,6 +53,8 @@ function PasswordGeneratorApp() {
         />
 
         <Options params={params} />
+
+        <Footer />
       </div>
     </>
   );

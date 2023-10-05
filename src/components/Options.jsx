@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Checkbox } from "./Checkbox";
 
 export const Options = React.memo(({ params }) => {
@@ -14,6 +14,34 @@ export const Options = React.memo(({ params }) => {
     handleSymbolsChange,
     handleLengthChange,
   } = params;
+
+  const [security, setSecurity] = useState("Baja");
+
+  useEffect(() => {
+    if (length <= 8) {
+      setSecurity("Baja");
+    } else if (length <= 16) {
+      setSecurity("Media");
+    } else if (length <= 24) {
+      setSecurity("Alta");
+    } else {
+      setSecurity("Muy Alta");
+    }
+  }, [length]);
+
+  const securityColor = () => {
+    if (security === "Baja") {
+      return "text-red-600";
+    } else if (security === "Media") {
+      return "text-yellow-600";
+    } else if (security === "Alta") {
+      return "text-green-600";
+    } else {
+      return "text-emerald-600";
+    }
+  };
+
+  const securityStyle = securityColor();
 
   return (
     <div className="flex flex-col items-center mt-4">
@@ -39,7 +67,19 @@ export const Options = React.memo(({ params }) => {
         </div>
       </div>
 
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-2 text-center mt-8 w-full md:w-6/12">
+      <div className="w-72 md:text-start font-bold text-center justify-center flex items-center">
+        <label
+          htmlFor="length"
+          className="font-Roboto p-2 text-gray-600 dark:text-white"
+        >
+          Seguridad:
+        </label>
+        <span className={`mr-6 text-emerald-600 ${securityStyle}`}>
+          {security}
+        </span>
+      </div>
+
+      <div className="grid grid-cols-2 md:grid-cols-4 md:justify-start gap-2 text-center mt-8 w-11/12 md:w-10/12 lg:w-6/12">
         <Checkbox
           especs={useLettersMin}
           name="Minúsculas"

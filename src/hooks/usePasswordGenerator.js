@@ -1,5 +1,6 @@
 import { useCallback, useState } from "react";
 import { generatePassword } from "../helpers/generatePassword";
+import { toast } from "sonner";
 
 export const usePasswordGenerator = () => {
 
@@ -35,6 +36,15 @@ export const usePasswordGenerator = () => {
         setUseSymbols(e.target.checked);
     };
 
+    const copyToClipboard = async (str) => {
+        try {
+            await navigator.clipboard.writeText(str);
+            toast.success("Copiado al portapapeles");
+        } catch (error) {
+            toast.error("Error al copiar al portapapeles");
+        }
+    };
+
     return {
         password,
         length,
@@ -48,5 +58,6 @@ export const usePasswordGenerator = () => {
         handleLettersMayusChange,
         handleNumbersChange,
         handleSymbolsChange,
+        copyToClipboard
     }
 }
