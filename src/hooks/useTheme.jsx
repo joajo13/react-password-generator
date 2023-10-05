@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 export const useTheme = () => {
-  const [theme, setTheme] = useState(false);
+  const [theme, setTheme] = useState(true);
 
   const handleToggleTheme = () => {
     setTheme((t) => !t);

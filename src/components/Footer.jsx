@@ -9,6 +9,7 @@ export const Footer = React.memo(() => {
           <a
             href="https://react-portfolio-v2-tau.vercel.app"
             className="hover:underline"
+            target="_blank"
           >
             Juan Giupponi
           </a>

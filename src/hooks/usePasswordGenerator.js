@@ -11,13 +11,14 @@ export const usePasswordGenerator = () => {
     const [useNumbers, setUseNumbers] = useState(true);
     const [useSymbols, setUseSymbols] = useState(true);
 
-    const handleClick = useCallback(() => {
+    const handleClick = useCallback((e) => {
+        e.preventDefault();
         setPassword(generatePassword(length, useLettersMin, useLettersMayus, useNumbers, useSymbols));
     }, [length, useLettersMin, useLettersMayus, useNumbers, useSymbols]);
 
     const handleLengthChange = (e) => {
         setLength(e.target.value);
-        handleClick()
+        handleClick(e)
     };
 
     const handleLettersMinChange = (e) => {
@@ -36,7 +37,8 @@ export const usePasswordGenerator = () => {
         setUseSymbols(e.target.checked);
     };
 
-    const copyToClipboard = async (str) => {
+    const copyToClipboard = async (str, e) => {
+        e.preventDefault();
         try {
             await navigator.clipboard.writeText(str);
             toast.success("Copiado al portapapeles");

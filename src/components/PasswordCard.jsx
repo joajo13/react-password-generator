@@ -9,7 +9,7 @@ export const PasswordCard = React.memo(
           <button className="flex bg-emerald-600 bg-opacity-40 md:bg-transparent hover:bg-emerald-600 hover:bg-opacity-40 rounded-2xl p-2 ml-2 h-10 w-10 items-center font-semibold active:scale-90 duration-75">
             <BiCopyAlt
               size={32}
-              onClick={() => copyToClipboard(password)}
+              onClick={(e) => copyToClipboard(password, e)}
               className="text-black dark:text-white"
             />
           </button>
