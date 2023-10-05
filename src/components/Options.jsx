@@ -50,7 +50,7 @@ export const Options = React.memo(({ params }) => {
           <label htmlFor="length" className="font-Roboto p-2 dark:text-white">
             Longitud de la contraseña:
           </label>
-          <span className="mr-6 text-emerald-600">{length}</span>
+          <span className="md:mr-6 text-emerald-600">{length}</span>
         </div>
 
         <div className="mt-2">
@@ -74,12 +74,12 @@ export const Options = React.memo(({ params }) => {
         >
           Seguridad:
         </label>
-        <span className={`mr-6 text-emerald-600 ${securityStyle}`}>
+        <span className={`md:mr-6 text-emerald-600 ${securityStyle}`}>
           {security}
         </span>
       </div>
 
-      <div className="grid grid-cols-2 md:grid-cols-4 md:justify-start gap-2 text-center mt-8 w-11/12 md:w-10/12 lg:w-6/12">
+      <div className="flex flex-wrap justify-around md:grid md:grid-cols-4 md:justify-start md:gap-2 text-center mt-8 w-11/12 md:w-10/12 lg:w-6/12">
         <Checkbox
           especs={useLettersMin}
           name="Minúsculas"

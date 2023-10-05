@@ -18,7 +18,7 @@ export const generatePassword =
     if (useSymbols) characters += symbols;
     if (useLettersMayus) characters += lettersMayus;
     if (!characters) {
-      return "No se puede generar una contraseña con los parámetros seleccionados";
+      return "No se puede generar una contraseña sin ningún parámetro seleccionado";
     }
     let password = "";
 
