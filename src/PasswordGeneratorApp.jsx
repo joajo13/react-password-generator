@@ -43,7 +43,7 @@ function PasswordGeneratorApp() {
     <>
       <div className="bg-white min-h-screen -z-10 dark:bg-gray-900">
         <Navbar handleToggleTheme={handleToggleTheme} />
-        <Toaster richColors theme={theme ? "dark" : "light"} />
+        <Toaster duration={1000} richColors theme={theme ? "dark" : "light"} />
         <Titles />
 
         <PasswordCard

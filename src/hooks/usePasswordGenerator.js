@@ -13,12 +13,14 @@ export const usePasswordGenerator = () => {
 
     const handleClick = useCallback((e) => {
         e.preventDefault();
+        toast.success("Contraseña generada")
+
         setPassword(generatePassword(length, useLettersMin, useLettersMayus, useNumbers, useSymbols));
     }, [length, useLettersMin, useLettersMayus, useNumbers, useSymbols]);
 
     const handleLengthChange = (e) => {
         setLength(e.target.value);
-        handleClick(e)
+        setPassword(generatePassword(length, useLettersMin, useLettersMayus, useNumbers, useSymbols));
     };
 
     const handleLettersMinChange = (e) => {
